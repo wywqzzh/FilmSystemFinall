@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="beans">
+
+<!--    映射文件的作用：-->
+<!--        1）类到表的yingshe-->
+<!--        2）属性到字段的映射-->
+    <class name="User" table="user">
+
+        <id name="userName" column="userName">
+<!--            <generator class="uuid"></generator>-->
+        </id>
+        <property name="userSex" column="userSex"/>
+        <property name="userPhone" column="userPhone"/>
+        <property name="userState" column="userState"/>
+        <property name="userPassword" column="userPassword"/>
+        <property name="userType" column="userType"/>
+        <property name="userMember" column="userMember"/>
+        <property name="userBalance" column="userBalance"/>
+        <property name="userAge"  column="userAge"/>
+        <property name="userArea" column="userArea"/>
+        <property name="userPreferences" column="userPreferences"/>
+    </class>
+
+</hibernate-mapping>

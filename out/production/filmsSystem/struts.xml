@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="hello" extends="struts-default">
+        <action name="sayHello">
+            <result>/index.jsp</result>
+        </action>
+    </package>
+    <package name="xxx" namespace="/userAction" extends="struts-default">
+        <action name="toLoginPage">
+            <result name="success">/login.jsp</result>
+        </action>
+        <action name="toRegisterPage">
+            <result name="success">/register.jsp</result>
+        </action>
+        <action name="logout" class="actions.LogoutAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        <action name="login" class="actions.LoginAction">
+            <result name="success">/index.jsp</result>
+            <result name="input">/login.jsp</result>
+            <result name="fail">/login.jsp</result>
+        </action>
+        <action name="register" class="actions.RegisterAction">
+            <result name="success">/login.jsp</result>
+            <result name="input">/register.jsp</result>
+            <result name="fail">/register.jsp</result>
+        </action>
+    </package>
+    <package name="xxxx" namespace="/cinemaAction" extends="struts-default">
+        <action name="showCinema" class="actions.CinemaAction" method="showCinema">
+            <result name="success">/showCinemas.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+    </package>
+<!--    <include file=""></include>-->
+<!--    <include file="struts-userAction.xml"></include>-->
+</struts>

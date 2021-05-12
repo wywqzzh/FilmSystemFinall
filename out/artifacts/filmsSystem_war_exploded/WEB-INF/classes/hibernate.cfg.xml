@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+<!--        DB连接四要素-->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/filmsSystem</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">100539</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+<!--        数据源C3p0:数据连接池-->
+        <property name="hibernate.connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+<!--        注册当前Session上下文,保证同一线程中获取到的session为同一session-->
+        <property name="hibernate.current_session_context_class">thread</property>
+<!--        自动建表-->
+        <property name="hibernate.hibernate.hbm2ddl.auto">update</property>
+<!--        显示SQL-->
+        <property name="hibernate.format_sql">true</property>
+<!--        开启二级缓存-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+<!--        开启二级缓存总开关-->
+        <property name="hibernate.cache.use_query_cache">true</property>
+<!--            注册二级缓存区域工厂-->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+<!--        注册映射文件-->
+        <mapping resource="beans/User.hbm.xml"/>
+<!--        指定类缓存-->
+<!--        <class-cache class="com.dao.Student" usage="read-only"></class-cache>-->
+<!--        集合缓存-->
+<!--        <collection-cache collection="" usage=""></collection-cache>-->
+<!--            设置封锁级别-->
+<!--        <property name="hibernate.connection.isolation">4</property>-->
+    </session-factory>
+</hibernate-configuration>

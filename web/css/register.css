@@ -1,0 +1,88 @@
+body{
+    background: url("/images/a.jpg");
+    padding-top: 250px;
+    padding-left: 600px;
+    background-repeat: no-repeat;
+    -moz-background-size:100% 100%;
+    background-size:100% 100%;
+}
+.main_box{
+    height: 500px;
+    width: 600px;
+    background:black;
+    opacity:0.5;
+    padding-top: 20px;
+}
+.fos{
+    color: white;
+    opacity:1;
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    padding-left: 0px;
+    position:relative;
+}
+.label{
+    color: white;
+    opacity:1;
+    margin: 0 auto;
+    font-size: 30px;
+    text-align: center;
+    width: 500px;
+}
+label { float: left;margin-left: 40px; width:150px;text-align: right; font-size: 16px}
+.error{
+    color: red;
+    font-size: 10px;
+    float:left;
+}
+
+.submit{
+    margin-top:20px ;
+    width:550px;
+    text-align: center;
+    float:left;
+    background:black;
+    opacity:1;
+    border-width: 0;
+    font-size: 16px;
+    color: white;
+
+}
+.submit:hover{
+    cursor: pointer;
+}
+.formFieldError {
+
+    color: #FF3300;
+
+}
+
+.inputs{
+    height: 25px;
+    margin-left: 10px;
+    float:left;
+}
+
+.formFieldError ul {
+
+    list-style-type: none;
+
+    display: inline;
+
+    margin: 0px;
+    margin-left: 10px;
+
+    padding: 0px;
+
+}
+
+
+
+.formFieldError ul li {
+
+    list-style-type: none;
+
+    display: inline;
+
+}

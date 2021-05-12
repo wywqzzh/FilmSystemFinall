@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="beans">
+
+<!--    映射文件的作用：-->
+<!--        1）类到表的yingshe-->
+<!--        2）属性到字段的映射-->
+    <class name="Cinema" table="cinema">
+
+        <id name="cinemaId" column="cinemaId">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="cinemaName" column="cinemaName"/>
+        <property name="cinemaAddress" column="cinemaAddress"/>
+        <property name="cinemaphone" column="cinemaphone"/>
+    </class>
+
+</hibernate-mapping>
