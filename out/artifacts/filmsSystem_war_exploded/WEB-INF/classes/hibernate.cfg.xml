@@ -17,7 +17,7 @@
 <!--        自动建表-->
         <property name="hibernate.hibernate.hbm2ddl.auto">update</property>
 <!--        显示SQL-->
-        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.format_sql">false</property>
 <!--        开启二级缓存-->
         <property name="hibernate.cache.use_second_level_cache">true</property>
 <!--        开启二级缓存总开关-->

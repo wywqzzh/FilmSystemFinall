@@ -4,6 +4,7 @@ import beans.User;
 import org.hibernate.SessionFactory;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public class UserDaoImpl implements IUserDao{
     private SessionFactory sessionFactory;
@@ -31,6 +32,25 @@ public class UserDaoImpl implements IUserDao{
         String password=user.getUserPassword();
         return (User) sessionFactory.getCurrentSession().createQuery(hql).
                 setParameter("name",name).uniqueResult();
+    }
+
+    @Override
+    public List<User> selectUserByType(int type) {
+        String hql="from User where userType<:userType";
+        return getSessionFactory().getCurrentSession().createQuery(hql).
+        setParameter("userType",type).list();
+    }
+
+    @Override
+    public void updateUserForState(String name, int state) {
+        String hql="update User u set u.userState=:state where u.userName=:name";
+        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("state",state).setParameter("name",name);
+    }
+
+    @Override
+    public void updateUserForType(String name, int type) {
+        String hql="update User u set u.userType=:type where u.userName=:name";
+        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("type",type).setParameter("name",name);
     }
 
     public SessionFactory getSessionFactory() {

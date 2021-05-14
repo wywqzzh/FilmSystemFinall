@@ -40,6 +40,7 @@ body{
     color:rgba(59,145,48,0.7);
 
 }
+
 a{
     cursor: pointer;
 }
@@ -73,7 +74,7 @@ a{
 }
 .search input{
     float: left;//左浮动
-    flex: 2;
+flex: 2;
     height: 60%;
     outline: none;
     border: 1px solid #f0f0f0;
@@ -156,139 +157,90 @@ a{
     /*margin-right: 2%;*/
 
 }
-.film{
-    border-left: 1px solid #e1e1e1;
-    border-right: 1px solid #e1e1e1;
+.cinema{
+    border-left: 2px solid #e1e1e1;
+    border-right: 2px solid #e1e1e1;
     width: 36%;
-    height: 80%;
+    height: 95%;
     background-color: white;
     margin-left: 32%;
-    border-bottom: 1px solid #e1e1e1;
-    /*padding-left: 2%;*/
-    /*padding-right: 2%;*/
+    border-bottom: 2px solid #e1e1e1;
 }
-.film .context{
-    width: 94%;
-    height: 48%;
-    background-color: white;
-    /*margin-left: 25%;*/
+.cinema .men{
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 90%;
+    height: 4%;
+    background-color: #f6f6f6;
+    border-bottom: 2px solid #d4d4d4;
+    border-top: 2px solid #c20c0c;
+    color: #6c6d74;
+    line-height: 300%;
+}
+.men .n1{
+    float: left;
+    width: 25%;
+    height: 100%;
+    border-right: 1px solid #d6d6d6;
+    background-color: #f6f6f6 ;
+    text-align: center;
+    /*line-height: 225%;*/
+}
+.men .n2{
+    float: left;
+    width: 56%;
+    height: 100%;
+    border-right: 1px solid #d6d6d6;
+    background-color: #f6f6f6;
+    text-align: center;
+    /*line-height: 225%;*/
+}
+.men .n3{
+    float: left;
+    width: 18%;
+    height: 100%;
+    background-color:#f6f6f6;
+    text-align: center;
+    /*line-height: 225%;*/
+}
+.cinema .mess{
+    margin-left: 5%;
+    width: 90%;
+    height: 4%;
+    background-color: #f6f6f6;
+    color: #6c6d74;
+    line-height: 300%;
+}
+.mess .n1{
+    float: left;
+    width: 25%;
+    height: 100%;
     text-align: left;
-    border-bottom: 1px solid #f7f7f7;
-    margin-left: 3%;
-    margin-right: 3%;
-    margin-bottom: 2%;
-
-}
-.context .hd{
-    width: 100%;
-    height: 15%;
-    margin-bottom: 2%;
-    /*font-weight:normal;*/
-    /*background-color: #1c9ba2;*/
-
-
-}
-.hd h2{
-    font-weight:normal;
-    font-size: 20px;
-    margin-bottom: 0;
-    border-bottom: 3px solid #ced9bf;
-}
-.context .bd{
-    width: 100%;
-    height: 83%;
-    /*background-color: #3d9f4b;*/
-}
-.bd>ul{
-    list-style: none;
-    height: 100%;
-    width: 100%;
-}
-.bd>ul>li{
-    height: 100%;
-    width: 20%;
-    background-color: white;
-    display: inline;
-    line-height: 100%;
-    float:left;
-    margin-right:5% ;
-}
-.bd>ul>li>ul{
-    height: 100%;
-    width: 100%;
-    list-style: none;
-}
-.li1{
-    width: 100%;
-    height: 60%;
-    /*background-color: #3d9f4b;*/
-    margin-bottom: 8%;
-
-}
-.li2{
     overflow: hidden;
-    width: 100%;
-    height: 7%;
-    /*background-color: #584029;*/
-    margin-bottom: 5%;
-    text-align: center;
-    line-height: 100%;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+    /*padding-right: 5px;*/
 }
-.li3{
-    width: 100%;
-    height: 7%;
-    /*background-color: #e4efe2;*/
-    margin-bottom: 5%;
-    text-align: center;
-}
-.li4{
-    width: 100%;
-    height: 10%;
-    /*background-color: #e85409;*/
-    text-align: center;
-}
-.a1{
-    display: block;
-    width: 100%;
+.mess .n2{
+    float: left;
+    width: 56%;
     height: 100%;
-    -moz-background-size:100% 100%;
-    background-size:100% 100%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    /*padding-right: 5px;*/
+    /*line-height: 225%;*/
 }
-.a2{
-    display: block;
-    /*margin-top: 10%;*/
+.mess .n3{
+    float: left;
+    width: 18%;
     height: 100%;
-    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    /*padding-left: 5px;*/
+    /*line-height: 225%;*/
 }
-
-
-.bd a{
-    cursor: pointer;
-}
-
-
-.myButton {
-    box-shadow:inset 0px 0px 14px -3px #f2fadc;
-    background:linear-gradient(to bottom, #e4efe2 5%, #9ba892 100%);
-    background-color:#e4efe2;
-    border-radius:6px;
-    border:1px solid #b2b8ad;
-    display:inline-block;
-    cursor:pointer;
-    color:#757d6f;
-    font-family:Arial;
-    font-size:15px;
-    font-weight:bold;
-    padding:6px 24px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #ced9bf;
-}
-.myButton:hover {
-    background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
-    background-color:#9ba892;
-}
-.myButton:active {
-    position:relative;
-    top:1px;
-}
-

@@ -10,6 +10,7 @@ import org.springframework.web.context.WebApplicationContext;
 import service.IUserService;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import javax.servlet.ServletContext;
+import java.util.List;
 
 public class LoginAction extends ActionSupport implements ModelDriven<User>{
     private User user;
@@ -38,9 +39,17 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
         String result=service.verifyUser(user);
 
         request.getSession().setAttribute("loginStatus",result);
-
-        if("success".equals(result)){
-            request.getSession().setAttribute("userName",user.getUserName());
+        System.out.println("userType"+result);
+        if("success".equals(result) ||"manager".equals(result) ||"root".equals(result)  ) {
+            request.getSession().setAttribute("userName", user.getUserName());
+            request.getSession().setAttribute("userType", result);
+        }
+        if("root".equals(result)){
+            List<User> users=service.findUserByType(2);
+            request.getSession().setAttribute("manageUsers",users);
+            for(User user:users){
+                System.out.println(user);
+            }
         }
         return result;
     }

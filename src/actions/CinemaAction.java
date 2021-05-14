@@ -34,6 +34,9 @@ public class CinemaAction extends ActionSupport implements ModelDriven<Cinema> {
         ICinemaService service=(ICinemaService)ac.getBean("cinemaService");
 
         List<Cinema> cinemas=service.findAllCinema();
+        for(Cinema cinema:cinemas){
+            System.out.println("cinema:"+cinema);
+        }
         request.getSession().setAttribute("cinemas",cinemas);
         return "success";
     }

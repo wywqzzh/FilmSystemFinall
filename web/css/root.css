@@ -1,0 +1,168 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td a{
+    margin:0;
+    padding:0;
+}
+div{
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+}
+body{
+    display: block;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+.nav{
+    height: 8%;
+    width: 100%;
+    background-color: #e4efe2;
+}
+.nav .title{
+    height: 100%;
+    width: 15%;
+    color: #319840;
+}
+.nav h3{
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin-top: 10%;
+    text-align: center;
+    line-height: 100%;
+    vertical-align: center;
+}
+
+.manage{
+    float: left;
+    width: 18%;
+    height: 94%;
+    background-color: white;
+    border-right: 2px  solid #e1e1e1;
+    padding-top: 3%;
+}
+.manage .n1{
+    width: 100%;
+    height: 6%;
+
+}
+.n1 a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.n1 a{
+    cursor: pointer;
+}
+/*.n1:hover{*/
+/*    background-color: red;*/
+/*}*/
+.n1 h3{
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    line-height: 300%;
+}
+.show{
+    float: left;
+    width: 81.8%;
+    height: 100%;
+    /*background-color: black;*/
+}
+
+.show .dsearch{
+    height: 8%;
+    width: 100%;
+    background-color: white;
+    /*padding-top: 3%;*/
+}
+.search{
+    float: left;
+    margin-left: 30%;
+    margin-top: 1.5%;
+    height: 80%;
+    width: 30%;
+    display: flex;
+    overflow: hidden;
+    /*border: 1px solid red;*/
+}
+.search input{
+    float: left;//左浮动
+    flex: 2;
+    height: 60%;
+    outline: none;
+    border: 1px solid #f0f0f0;
+    width: 80%;
+    /*box-sizing: border-box;//盒子模型，怪异IE盒子模型，width=content+border*2+padding*2*/
+    padding-left: 3%;
+}
+.search button{
+    float: left;
+    flex: 1;
+    height: 60%;
+    width: 20%;
+    background-color: #C0C0C0;
+    color: white;
+    border-style: none;
+    outline: none;
+}
+.search button i{
+    font-style: normal;
+}
+.search button{
+    cursor: pointer;
+}
+.search button:hover{
+    background-color: #f0f0f0;
+    color: #C0C0C0;
+}
+
+.show .userMessage{
+    height: 120%;
+    width: 80%;
+    /*background-color: black;*/
+    margin-left: 10%;
+    overflow: scroll;
+}
+.men{
+    width: 80%;
+    height: 6%;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-color: white;
+    border-bottom: 2px solid #ced9bf;
+    color: #6c6d74;
+}
+
+.men .n1{
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #e1e1e1;
+    text-align: center;
+    line-height: 560%;
+}
+.men .n2{
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #e1e1e1;
+    text-align: center;
+    line-height: 560%;
+}
+
+.mess{
+    width: 100%;
+    height: 6%;
+}
+
+.mess .n1{
+    float: left;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    line-height: 560%;
+}
+
