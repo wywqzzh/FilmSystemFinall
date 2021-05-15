@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="beans">
+
+<!--    映射文件的作用：-->
+<!--        1）类到表的yingshe-->
+<!--        2）属性到字段的映射-->
+    <class name="Hall" table="hall">
+
+<!--        <composite-id>-->
+<!--            &lt;!&ndash; key-property标签表示哪一些属性对应复合主键 &ndash;&gt;-->
+<!--            <key-property name="id" column="id" type="string"></key-property>-->
+<!--            <key-property name="name" column="name" type="string"></key-property>-->
+<!--        </composite-id>-->
+
+        <id name="hallId" column="hallId">
+            <generator class="uuid"></generator>
+        </id>
+        <property name="cinemaId" column="cinemaId"/>
+        <property name="hallRow" column="hallRow"/>
+        <property name="hallCol" column="hallCol"/>
+        <property name="hallNum" column="hallNum"/>
+    </class>
+
+</hibernate-mapping>

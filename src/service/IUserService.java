@@ -18,6 +18,7 @@ public interface IUserService {
     public List<User> updateUserForState(String name,int state,int type);
 
     public List<User> updateUserForType(String name,int type,int Type);
+    public User findUserByName(String name);
 
 
 }

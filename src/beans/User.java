@@ -148,7 +148,11 @@ public class User {
             "userName='" + userName + '\'' +
             ", userSex='" + userSex + '\'' +
             ", userPhone='" + userPhone + '\'' +
+            ", userState=" + userState +
             ", userPassword='" + userPassword + '\'' +
+            ", userType=" + userType +
+            ", userMember=" + userMember +
+            ", userBalance=" + userBalance +
             ", userArea='" + userArea + '\'' +
             ", userAge=" + userAge +
             ", userPreferences='" + userPreferences + '\'' +

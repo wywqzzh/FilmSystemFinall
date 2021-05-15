@@ -46,7 +46,9 @@
     <bean id="cinemaDao" class="dao.CinemaDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
+    <bean name="hallDao" class="dao.HallDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!--注册Service-->
     <bean id="userService" class="service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
@@ -54,7 +56,9 @@
     <bean id="cinemaService" class="service.CinemaServiceImpl">
         <property name="cinemaDao" ref="cinemaDao"/>
     </bean>
-
+    <bean id="hallService" class="service.HallServiceImpl">
+        <property name="hallDao" ref="hallDao"/>
+    </bean>
 
 
     <!--    注册事务管理器-->

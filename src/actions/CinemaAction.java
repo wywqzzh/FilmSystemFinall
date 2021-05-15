@@ -26,9 +26,6 @@ public class CinemaAction extends ActionSupport implements ModelDriven<Cinema> {
 
     public String showCinema(){
         javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
-//        ServletContext application=request.getSession().getServletContext();
-//        WebApplicationContext ac=(WebApplicationContext)application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
-//        ICinemaService service=(ICinemaService)ac.getBean("ss");
         String resource="applicationContext.xml";
         ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
         ICinemaService service=(ICinemaService)ac.getBean("cinemaService");

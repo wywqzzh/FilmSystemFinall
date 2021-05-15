@@ -43,14 +43,14 @@ public class UserDaoImpl implements IUserDao{
 
     @Override
     public void updateUserForState(String name, int state) {
-        String hql="update User u set u.userState=:state where u.userName=:name";
-        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("state",state).setParameter("name",name);
+        String hql="update User set userState=:state where userName=:name";
+        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("state",state).setParameter("name",name).executeUpdate();
     }
 
     @Override
     public void updateUserForType(String name, int type) {
-        String hql="update User u set u.userType=:type where u.userName=:name";
-        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("type",type).setParameter("name",name);
+        String hql="update User set userType=:type where userName=:name";
+        getSessionFactory().getCurrentSession().createQuery(hql).setParameter("type",type).setParameter("name",name).executeUpdate();
     }
 
     public SessionFactory getSessionFactory() {

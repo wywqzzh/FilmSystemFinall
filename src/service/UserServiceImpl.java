@@ -60,4 +60,12 @@ public class UserServiceImpl implements IUserService{
         userDao.updateUserForType(name,type);
         return userDao.selectUserByType(Type);
     }
+
+    @Override
+    @Transactional
+    public User findUserByName(String name) {
+        User user=new User();
+        user.setUserName(name);
+        return userDao.selectUserByName(user);
+    }
 }

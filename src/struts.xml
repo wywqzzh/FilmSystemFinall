@@ -25,6 +25,7 @@
             <result name="input">/login.jsp</result>
             <result name="fail">/login.jsp</result>
             <result name="root">/root.jsp</result>
+            <result name="manager">/root.jsp</result>
         </action>
         <action name="register" class="actions.RegisterAction">
             <result name="success">/login.jsp</result>
@@ -43,12 +44,40 @@
     </package>
 
     <package name="x" namespace="/manageAction" extends="struts-default">
+<!--        用户管理-->
         <action name="updateUser" class="actions.ManageAction" method="updateUser">
             <result name="success">/root.jsp</result>
             <result name="fail">/error.jsp</result>
         </action>
         <action name="manageUser" class="actions.ManageAction" method="userManageAllUser">
             <result name="success">/root.jsp</result>
+        </action>
+        <action name="searchUser" class="actions.ManageAction" method="searchUser">
+            <result name="success">/root.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+
+<!--        影院管理-->
+        <action name="manageCinema" class="actions.ManageAction" method="mamageAllCinema">
+            <result name="success">/manage-cinema.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+        <action name="addCinema" class="actions.ManageAction" method="addCinema">
+            <result name="success">/manage-cinema.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+        <action name="toAddCinemaPage">
+            <result name="success">/addCinema.jsp</result>
+        </action>
+        <action name="updateCinemaPage">
+            <result name="success">/updateCinema.jsp</result>
+        </action>
+        <action name="updateCinema" class="actions.ManageAction" method="updateCinema">
+            <result name="success">/manage-cinema.jsp</result>
+        </action>
+
+        <action name="addHall" class="actions.ManageAction" method="addHall">
+            <result name="success">/manage-cinema.jsp</result>
         </action>
     </package>
 

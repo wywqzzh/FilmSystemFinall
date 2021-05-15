@@ -18,4 +18,21 @@ public class CinemaServiceImpl implements ICinemaService{
     public List<Cinema> findAllCinema() {
         return cinemaDao.selectAllCinema();
     }
+
+    @Override
+    @Transactional
+    public String addCinema(Cinema cinema) {
+        Cinema cinema1=cinemaDao.selectCinemaByName(cinema.getCinemaName());
+        if(cinema1!=null) return "input";
+        else {
+            cinemaDao.insertCinema(cinema);
+            return "success";
+        }
+    }
+
+    @Override
+    @Transactional
+    public void updateCinema(Cinema cinema) {
+        cinemaDao.updateCinema(cinema);
+    }
 }

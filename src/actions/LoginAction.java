@@ -47,12 +47,17 @@ public class LoginAction extends ActionSupport implements ModelDriven<User>{
         if("root".equals(result)){
             List<User> users=service.findUserByType(2);
             request.getSession().setAttribute("manageUsers",users);
+        }else if("manager".equals(result)){
+            List<User> users=service.findUserByType(1);
+            request.getSession().setAttribute("manageUsers",users);
             for(User user:users){
                 System.out.println(user);
             }
         }
+
         return result;
     }
+
 
     @Override
     public User getModel() {

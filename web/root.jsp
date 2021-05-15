@@ -71,10 +71,10 @@
     </div>
     <div class="manage">
         <div class="n1">
-           <a> <h3 style="background-color: #f7f7f7">用户管理</h3></a>
+           <a href="manageAction/manageUser"> <h3 style="background-color: #f7f7f7">用户管理</h3></a>
         </div>
         <div class="n1">
-            <a><h3 style="background-color: #ffffff">影院管理</h3></a>
+            <a href= "manageAction/manageCinema"><h3 style="background-color: #ffffff">影院管理</h3></a>
         </div>
         <div class="n1">
             <a><h3 style="background-color: #f7f7f7">影评管理</h3></a>
@@ -84,7 +84,7 @@
         <div class="dsearch">
             <div class="search">
                 <div style="clear:both;"></div>
-                <form action="userAction/toRegisterPage" style="width: 100%;height: 100%">
+                <form action="manageAction/searchUser" style="width: 100%;height: 100%">
                     <input type="text" placeholder="请输入用户名" name="input" id="" value="" />
                     <button><i>搜索</i></button>
                 </form>
@@ -98,6 +98,10 @@
             <div class="n2"></div>
             <div class="n2" style="width: 19.6%;border:0;"></div>
         </div>
+        <form  method="post" action="manageAction/updateUser" id ="passForm">
+            <input id = "operateUserName" type = "hidden" name="operateUserName">
+            <input id ="operator" type="hidden" name="operator">
+        </form>
         <div class="userMessage" id="userMessage">
             <%  List<User> users=(List<User>)session.getAttribute("manageUsers");
                 int x=0;
@@ -105,10 +109,7 @@
                     x+=1;
                     if(x%2==0){%>
             <div class="mess" style="background-color: #f7f7f7">
-                <form  method="post" action="manageAction/updateUser" id ="passForm">
-                    <input id = "operateUserName" type = "hidden" name="operateUserName">
-                    <input id ="operator" type="hidden" name="operator">
-                </form>
+
                 <div class="n1" ><span><%=user.getUserName()%></span></div>
                 <%if(user.getUserState()==0){%>
                 <div class="n1" ><span>正常</span></div>
