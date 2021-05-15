@@ -279,4 +279,8 @@ public class ManageAction {
         request.getSession().setAttribute("cinemaHall",halls);
         return "success";
     }
+
+
+
+
 }

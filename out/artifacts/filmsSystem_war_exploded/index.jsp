@@ -19,6 +19,9 @@
     <title>$Title$</title>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>/css/index.css">
+    <script type="text/javascript">
+      window.location.href="test/home";
+    </script>
   </head>
   <body>
     <div class="top">

@@ -15,8 +15,7 @@ public class FilearrangementmessageDao implements IFilearrangementmessageDao{
     }
 
     @Override
-    @Transactional
-    public void insertA(Filearrangementmessage filearrangementmessage) {
+    public void insertArrange(Filearrangementmessage filearrangementmessage) {
         sessionFactory.getCurrentSession().save(filearrangementmessage);
     }
 
@@ -25,5 +24,11 @@ public class FilearrangementmessageDao implements IFilearrangementmessageDao{
     public List<Filearrangementmessage> selectAByTime(Timestamp timestamp) {
         String hql="from Filearrangementmessage where arrangeStartDatetime<:time";
         return sessionFactory.getCurrentSession().createQuery(hql).setParameter("time",timestamp).list();
+    }
+
+    @Override
+    public List<String> selectWillArrange() {
+        String hql="select filmId from Filearrangementmessage order by arrangeSaleTime";
+        return sessionFactory.getCurrentSession().createQuery(hql).list();
     }
 }

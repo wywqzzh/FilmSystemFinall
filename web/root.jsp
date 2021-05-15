@@ -80,7 +80,7 @@
             <a><h3 style="background-color: #f7f7f7">影评管理</h3></a>
         </div>
         <div class="n1">
-            <a href="manageAction/toArrangePage"><h3 style="background-color: #ffffff">排片管理</h3></a>
+            <a href="manageAction/getInitarrange"><h3 style="background-color: #ffffff">排片管理</h3></a>
         </div>
     </div>
     <div class="show">

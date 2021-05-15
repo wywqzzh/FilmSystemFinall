@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Film" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2021/5/5
@@ -19,9 +20,6 @@
     <title>$Title$</title>
     <base href="<%=basePath%>">
     <link rel="stylesheet" href="<%=basePath%>/css/index.css">
-    <script type="text/javascript">
-      window.location.href="test/home";
-    </script>
   </head>
   <body>
     <div class="top">
@@ -43,7 +41,7 @@
         <div style="clear:both;"></div>
         <ul>
           <div style="clear:both;"></div>
-          <li><a href="test/toerror" style="color: #584029;width: 15%">首页</a> </li>
+          <li><a href="test/home" style="color: #584029;width: 15%">首页</a> </li>
           <li><a href="${pageContext.request.contextPath}/cinemaAction/showCinema" style="color: #f37f00;width: 15%">电影院</a> </li>
           <li><a href="" style="color: #e85409;width: 15%">即将上映</a> </li>
           <li><a href="" style="color: #1c9ba2;width: 15%">我的订票</a> </li>
@@ -85,37 +83,38 @@
           <div class="hd">
             <h2 style="line-height: 250%">正在热映</h2>
           </div>
+          <% List<Film> films= (List<Film>) session.getAttribute("willFilm");%>
           <div class="bd">
             <ul style="width: 100%;height: 100%">
               <li>
                 <ul >
-                  <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                  <li class="li2"><a class="a2">霸王别姬</a></li>
-                  <li class="li3"><a>评分:4.5</a></li>
+                  <li class="li1"><a style="background-image:url(<%=films.get(0).getFilmImgUrl()%>);" class="a1"></a></li>
+                  <li class="li2"><a class="a2"><%=films.get(0).getFilmName()%></a></li>
+                  <li class="li3"><a>评分:<%=films.get(0).getFilmRating()%></a></li>
                   <li class="li4"><a class="myButton">购票</a></li>
                 </ul>
               </li>
               <li>
                 <ul >
-                  <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                  <li class="li2"><a class="a2">霸王别姬</a></li>
-                  <li class="li3"><a>评分:4.5</a></li>
+                  <li class="li1"><a style="background-image:url(<%=films.get(1).getFilmImgUrl()%>);" class="a1"></a></li>
+                  <li class="li2"><a class="a2"><%=((List<Film>)session.getAttribute("willFilm")).get(1).getFilmName()%></a></li>
+                  <li class="li3"><a>评分:<%=films.get(1).getFilmRating()%></a></li>
                   <li class="li4"><a class="myButton">购票</a></li>
                 </ul>
               </li>
               <li>
                 <ul >
-                  <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                  <li class="li2"><a class="a2">霸王别姬</a></li>
-                  <li class="li3"><a>评分:4.5</a></li>
+                  <li class="li1"><a style="background-image:url(<%=films.get(2).getFilmImgUrl()%>);" class="a1"></a></li>
+                  <li class="li2"><a class="a2"><%=((List<Film>)session.getAttribute("willFilm")).get(2).getFilmName()%></a></li>
+                  <li class="li3"><a>评分:<%=films.get(2).getFilmRating()%></a></li>
                   <li class="li4"><a class="myButton">购票</a></li>
                 </ul>
               </li>
               <li>
                 <ul >
-                  <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                  <li class="li2"><a class="a2">霸王别姬</a></li>
-                  <li class="li3"><a>评分:4.5</a></li>
+                  <li class="li1"><a style="background-image:url(<%=films.get(3).getFilmImgUrl()%>);" class="a1"></a></li>
+                  <li class="li2"><a class="a2"><%=((List<Film>)session.getAttribute("willFilm")).get(3).getFilmName()%></a></li>
+                  <li class="li3"><a>评分:<%=films.get(3).getFilmRating()%></a></li>
                   <li class="li4"><a class="myButton">购票</a></li>
                 </ul>
               </li>

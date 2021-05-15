@@ -22,12 +22,8 @@ public class CinemaServiceImpl implements ICinemaService{
     @Override
     @Transactional
     public String addCinema(Cinema cinema) {
-        Cinema cinema1=cinemaDao.selectCinemaByName(cinema.getCinemaName());
-        if(cinema1!=null) return "input";
-        else {
             cinemaDao.insertCinema(cinema);
             return "success";
-        }
     }
 
     @Override

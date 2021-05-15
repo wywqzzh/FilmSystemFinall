@@ -2,8 +2,10 @@ package service;
 
 import beans.Cinema;
 import beans.Filearrangementmessage;
+import beans.Film;
 import beans.User;
 import dao.IFilearrangementmessageDao;
+import dao.IFilmDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
@@ -67,6 +69,18 @@ public class MyTest {
         for(Filearrangementmessage filearrangementmessage:filearrangementmessages){
             System.out.println(filearrangementmessage);
         }
+    }
+
+    @Test
+    public void  testLike(){
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
+        IFilmDao service= (IFilmDao) ac.getBean("filmDao");
+        List<Film> films=service.SselectFilmByName("肖");
+        for(Film film:films){
+            System.out.println(film);
+        }
+
     }
 
 }

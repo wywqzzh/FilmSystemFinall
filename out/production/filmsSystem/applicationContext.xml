@@ -52,6 +52,9 @@
     <bean name="arrangeDao" class="dao.FilearrangementmessageDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean id="filmDao" class="dao.FilmDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!--注册Service-->
     <bean id="userService" class="service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
@@ -62,7 +65,14 @@
     <bean id="hallService" class="service.HallServiceImpl">
         <property name="hallDao" ref="hallDao"/>
     </bean>
-
+    <bean id="filmService" class="service.FilmServiceImpl">
+        <property name="filmDao" ref="filmDao"/>
+        <property name="arrangDao" ref="arrangeDao"/>
+    </bean>
+    <bean id="arrangeService" class="service.ArrangeServiceImpl">
+        <property name="arrangeDao" ref="arrangeDao"/>
+        <property name="hallDao" ref="hallDao"/>
+    </bean>
 
     <!--    注册事务管理器-->
     <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

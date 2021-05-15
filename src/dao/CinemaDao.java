@@ -25,9 +25,9 @@ public class CinemaDao implements ICinemaDao{
     }
 
     @Override
-    public Cinema selectCinemaByName(String name) {
+    public List<Cinema> selectCinemaByName(String name) {
         String hql="from Cinema where cinemaName=:name";
-        return (Cinema) sessionFactory.getCurrentSession().createQuery(hql).setParameter("name",name).uniqueResult();
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("name",name).list();
     }
 
     @Override
