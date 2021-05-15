@@ -38,5 +38,6 @@ public class CinemaDao implements ICinemaDao{
         setParameter("address",cinema.getCinemaAddress()).
         setParameter("phone",cinema.getCinemaphone()).
         setParameter("id",cinema.getCinemaId()).executeUpdate();
+        sessionFactory.getCurrentSession().clear();
     }
 }

@@ -49,6 +49,9 @@
     <bean name="hallDao" class="dao.HallDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean name="arrangeDao" class="dao.FilearrangementmessageDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!--注册Service-->
     <bean id="userService" class="service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>

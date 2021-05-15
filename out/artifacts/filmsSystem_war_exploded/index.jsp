@@ -40,7 +40,7 @@
         <div style="clear:both;"></div>
         <ul>
           <div style="clear:both;"></div>
-          <li><a href="" style="color: #584029;width: 15%">首页</a> </li>
+          <li><a href="test/toerror" style="color: #584029;width: 15%">首页</a> </li>
           <li><a href="${pageContext.request.contextPath}/cinemaAction/showCinema" style="color: #f37f00;width: 15%">电影院</a> </li>
           <li><a href="" style="color: #e85409;width: 15%">即将上映</a> </li>
           <li><a href="" style="color: #1c9ba2;width: 15%">我的订票</a> </li>

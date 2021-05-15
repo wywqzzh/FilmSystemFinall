@@ -5,9 +5,15 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="hello" extends="struts-default">
+    <package name="hello" namespace="/test" extends="struts-default">
         <action name="sayHello">
             <result>/index.jsp</result>
+        </action>
+        <action name="toerror">
+            <result name="success">/error.jsp</result>
+        </action>
+        <action name="dateTest" class="actions.TimeTest" method="execute">
+            <result name="success">/error.jsp</result>
         </action>
     </package>
     <package name="xxx" namespace="/userAction" extends="struts-default">
@@ -58,7 +64,7 @@
         </action>
 
 <!--        影院管理-->
-        <action name="manageCinema" class="actions.ManageAction" method="mamageAllCinema">
+        <action name="manageCinema" class="actions.ManageAction" method="manageAllCinema">
             <result name="success">/manage-cinema.jsp</result>
             <result name="input">/error.jsp</result>
         </action>
@@ -76,8 +82,26 @@
             <result name="success">/manage-cinema.jsp</result>
         </action>
 
+        <action name="toAddHallPage">
+            <result>/addHall.jsp</result>
+        </action>
         <action name="addHall" class="actions.ManageAction" method="addHall">
             <result name="success">/manage-cinema.jsp</result>
+            <result name="exist">/addHall.jsp</result>
+        </action>
+
+        <action name="findCinemaHall" class="actions.ManageAction" method="findCinemaHall">
+            <result name="success">/manage-cinema.jsp</result>
+            <result name="input">/error.jsp</result>
+        </action>
+        <action name="removeHall" class="actions.ManageAction" method="removeHall">
+            <result name="success">/manage-cinema.jsp</result>
+        </action>
+
+
+<!--        拍片管理-->
+        <action name="toArrangePage" class="actions.ManageAction" method="manageAllCinema">
+            <result name="success">/manage-arrange.jsp</result>
         </action>
     </package>
 

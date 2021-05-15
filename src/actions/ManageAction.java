@@ -4,6 +4,7 @@ import beans.Cinema;
 import beans.Hall;
 import beans.User;
 import org.apache.struts2.ServletActionContext;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
@@ -166,7 +167,7 @@ public class ManageAction {
         else return "input";
 
     }
-    public String mamageAllCinema(){
+    public String manageAllCinema(){
         javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
         String resource="applicationContext.xml";
         ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
@@ -175,7 +176,8 @@ public class ManageAction {
         List<Cinema> cinemas=service.findAllCinema();
 
         request.getSession().setAttribute("manageCinemas",cinemas);
-
+        request.getSession().removeAttribute("isHall");
+        System.out.println("==============================================");
         if(cinemas!=null) return "success";
         else return "input";
     }
@@ -195,6 +197,7 @@ public class ManageAction {
         List<Cinema> cinemas=service.findAllCinema();
         request.getSession().setAttribute("manageCinemas",cinemas);
         request.getSession().setAttribute("addCinemaStatus",result);
+        request.getSession().removeAttribute("isHall");
         return result;
     }
 
@@ -216,22 +219,64 @@ public class ManageAction {
 
         List<Cinema> cinemas=service.findAllCinema();
         request.getSession().setAttribute("manageCinemas",cinemas);
+        request.getSession().removeAttribute("isHall");
         return "success";
     }
 
     public String addHall(){
         javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
-        ServletContext application=request.getSession().getServletContext();
-        WebApplicationContext ac=(WebApplicationContext)application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
         IHallService service=(IHallService)ac.getBean("hallService");
 
+
+        cinemaId= (String) request.getSession().getAttribute("cinemaId");
+        System.out.println("cinemaId:"+cinemaId);
         Hall hall=new Hall();
         hall.setCinemaId(cinemaId);
         hall.setHallCol(hallCol);
         hall.setHallNum(hallNum);
         hall.setHallRow(hallRow);
 
-        return service.addHall(hall);
+        String result= service.addHall(hall);
+        if("success".equals(result)){
+            List<Hall> halls=service.findAllHallByCinemaId(cinemaId);
+            request.getSession().setAttribute("cinemaHall",halls);
+            for(Hall hall1:halls){
+                System.out.println(hall1);
+            }
+        }
+        request.getSession().setAttribute("addHallState",result);
+        return result;
 
+    }
+
+    public String findCinemaHall(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
+        IHallService service=(IHallService)ac.getBean("hallService");
+
+        String cinemaId=request.getParameter("cinemaId");
+        request.getSession().setAttribute("cinemaId",cinemaId);
+        List<Hall> halls=service.findAllHallByCinemaId(cinemaId);
+        request.getSession().setAttribute("cinemaHall",halls);
+        request.getSession().setAttribute("isHall","yes");
+        if(halls==null) return "inputs";
+        else return "success";
+    }
+
+
+    public String removeHall(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
+        IHallService service=(IHallService)ac.getBean("hallService");
+        String hallId=request.getParameter("hallId");
+        service.removeHallById(hallId);
+        cinemaId= (String) request.getSession().getAttribute("cinemaId");
+        List<Hall> halls=service.findAllHallByCinemaId(cinemaId);
+        request.getSession().setAttribute("cinemaHall",halls);
+        return "success";
     }
 }

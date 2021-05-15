@@ -21,56 +21,56 @@
 <head>
     <title>$Title$</title>
     <base href="<%=basePath%>">
-    <link rel="stylesheet" href="<%=basePath%>/css/manageCinema.css">
-    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script type="text/javascript">
-        window.onload=function () {
-            var isHall="<%=session.getAttribute("isHall")%>";
-            if("yes"==isHall){
-                var halls= document.getElementById("hallMessage").getElementsByClassName("mess");
-                for(var i=0;i<halls.length;i++){
-                    var a1=halls[i].getElementsByTagName("a")[0];
-                    a1.onclick=function () {
-                        var form=document.getElementById("deleteHall");
-                        var parent=this.parentNode.parentNode;
-                        var hallId=parent.getElementsByTagName("span")[0].innerHTML;
-                        console.log("sss");
-                        console.log(hallId);
-                        form.hallId.value=hallId;
-                        form.submit();
-                    }
-                }
-            }else {
-                var cinemas = document.getElementById("userMessage").getElementsByClassName("mess");
-                for (var i = 0; i < cinemas.length; i++) {
-                    var a1 = cinemas[i].getElementsByTagName("a")[0];
-                    a1.onclick = function () {
-                        var parent = this.parentNode.parentNode;
-                        var cinemaId = parent.getElementsByTagName("span")[0].innerHTML;
-                        var cinemaName = parent.getElementsByClassName("n1")[0].getElementsByTagName("span")[0].innerHTML;
-                        var cinemaAddress = parent.getElementsByClassName("n1")[1].getElementsByTagName("span")[0].innerHTML;
-                        var cinemaPhone = parent.getElementsByClassName("n1")[2].getElementsByTagName("span")[0].innerHTML;
+    <link rel="stylesheet" href="<%=basePath%>/css/manageArrange.css">
+<%--    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>--%>
+<%--    <script type="text/javascript">--%>
+<%--        window.onload=function () {--%>
+<%--            var isHall="<%=session.getAttribute("isHall")%>";--%>
+<%--            if("yes"==isHall){--%>
+<%--                var halls= document.getElementById("hallMessage").getElementsByClassName("mess");--%>
+<%--                for(var i=0;i<halls.length;i++){--%>
+<%--                    var a1=halls[i].getElementsByTagName("a")[0];--%>
+<%--                    a1.onclick=function () {--%>
+<%--                        var form=document.getElementById("deleteHall");--%>
+<%--                        var parent=this.parentNode.parentNode;--%>
+<%--                        var hallId=parent.getElementsByTagName("span")[0].innerHTML;--%>
+<%--                        console.log("sss");--%>
+<%--                        console.log(hallId);--%>
+<%--                        form.hallId.value=hallId;--%>
+<%--                        form.submit();--%>
+<%--                    }--%>
+<%--                }--%>
+<%--            }else {--%>
+<%--                var cinemas = document.getElementById("userMessage").getElementsByClassName("mess");--%>
+<%--                for (var i = 0; i < cinemas.length; i++) {--%>
+<%--                    var a1 = cinemas[i].getElementsByTagName("a")[0];--%>
+<%--                    a1.onclick = function () {--%>
+<%--                        var parent = this.parentNode.parentNode;--%>
+<%--                        var cinemaId = parent.getElementsByTagName("span")[0].innerHTML;--%>
+<%--                        var cinemaName = parent.getElementsByClassName("n1")[0].getElementsByTagName("span")[0].innerHTML;--%>
+<%--                        var cinemaAddress = parent.getElementsByClassName("n1")[1].getElementsByTagName("span")[0].innerHTML;--%>
+<%--                        var cinemaPhone = parent.getElementsByClassName("n1")[2].getElementsByTagName("span")[0].innerHTML;--%>
 
-                        var form = document.getElementById("passForm");
+<%--                        var form = document.getElementById("passForm");--%>
 
-                        form.cinemaId.value = cinemaId;
-                        form.cinemaName.value = cinemaName;
-                        form.cinemaAddress.value = cinemaAddress;
-                        form.cinemaphone.value = cinemaPhone;
+<%--                        form.cinemaId.value = cinemaId;--%>
+<%--                        form.cinemaName.value = cinemaName;--%>
+<%--                        form.cinemaAddress.value = cinemaAddress;--%>
+<%--                        form.cinemaphone.value = cinemaPhone;--%>
 
-                    }
-                    var a2 = cinemas[i].getElementsByTagName("a")[1];
-                    a2.onclick = function () {
-                        var parent = this.parentNode.parentNode;
-                        var cinemaId = parent.getElementsByTagName("span")[0].innerHTML;
-                        var form = document.getElementById("showHall");
-                        form.cinemaId.value = cinemaId;
-                        form.submit();
-                    }
-                }
-            }
-        }
-    </script>
+<%--                    }--%>
+<%--                    var a2 = cinemas[i].getElementsByTagName("a")[1];--%>
+<%--                    a2.onclick = function () {--%>
+<%--                        var parent = this.parentNode.parentNode;--%>
+<%--                        var cinemaId = parent.getElementsByTagName("span")[0].innerHTML;--%>
+<%--                        var form = document.getElementById("showHall");--%>
+<%--                        form.cinemaId.value = cinemaId;--%>
+<%--                        form.submit();--%>
+<%--                    }--%>
+<%--                }--%>
+<%--            }--%>
+<%--        }--%>
+<%--    </script>--%>
 </head>
 <body>
     <div class="nav">
@@ -94,10 +94,12 @@
     </div>
     <div class="show">
         <div class="dsearch">
+            <div class="note"><h2 style="display: block">选择电影</h2></div>
             <div class="search">
+
                 <div style="clear:both;"></div>
                 <form action="manageAction/searchUser" style="width: 100%;height: 100%">
-                    <input type="text" placeholder="请输入用户名" name="input" id="" value="" />
+                    <input type="text" placeholder="请输入电影名" name="input" id="" value="" />
                     <button><i>搜索</i></button>
                 </form>
             </div>
@@ -117,16 +119,14 @@
             <input id = "hallId" type = "hidden" name="hallId">
         </form>
         <% String ishall= (String) session.getAttribute("isHall");
-            System.out.println("jsp:"+ishall);
             if(ishall==null || "".equals(ishall)){%>
                 <div class="men">
-                    <div class="n1" style="width: 20%"><span>影院名称</span></div>
-                    <div class="n2" style="width: 35%;"><span>影院地址</span></div>
-                    <div class="n2" style="width:15%;"><span>联系电话</span></div>
-                    <div class="n2" style="width: 12.6%;"></div>
-                    <div class="n2" style="width: 5.6%;border:0;"></div>
+                    <div class="n1" style="width: 25%"><span>电影名</span></div>
+                    <div class="n2" style="width: 25%;"><span>导演</span></div>
+                    <div class="n2" style="width:25%;"><span>主演</span></div>
+                    <div class="n2" style="width: 24.6%;border:0;"></div>
                 </div>
-                <div class="userMessage" id="userMessage">
+                <div class="filmMessage" id="filmMessage">
                     <%  List<Cinema> cinemas=(List<Cinema>)session.getAttribute("manageCinemas");
                         int x=0;
                         for(Cinema cinema:cinemas) {
