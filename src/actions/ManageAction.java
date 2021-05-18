@@ -1,16 +1,12 @@
 package actions;
 
-import beans.Cinema;
-import beans.Hall;
-import beans.User;
+import beans.*;
 import org.apache.struts2.ServletActionContext;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
-import service.ICinemaService;
-import service.IHallService;
-import service.IUserService;
+import service.*;
 
 import javax.servlet.ServletContext;
 import java.util.ArrayList;
@@ -281,6 +277,45 @@ public class ManageAction {
     }
 
 
+    public String manageReview(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
+        IReviewService reviewService= (IReviewService) ac.getBean("reviewService");
+        IFilmService filmService= (IFilmService) ac.getBean("filmService");
 
+        List<Review> reviews=reviewService.findAllReview();
+        List<Film> films=new ArrayList<Film>();
+        for(Review review:reviews){
+            films.add(filmService.findFilmById(review.getFilmId()));
+        }
+
+        request.getSession().setAttribute("films",films);
+        request.getSession().setAttribute("reviews",reviews);
+        return "success";
+    }
+
+
+    public String deleteReview(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        String filmId=request.getParameter("filmId");
+        String userName=request.getParameter("userName");
+        String resource="applicationContext.xml";
+        ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
+        IReviewService reviewService= (IReviewService) ac.getBean("reviewService");
+        IFilmService filmService= (IFilmService) ac.getBean("filmService");
+        System.out.println(filmId);
+        System.out.println(userName);
+        reviewService.removeReview(userName,filmId);
+
+        List<Review> reviews=reviewService.findAllReview();
+        request.getSession().setAttribute("reviews",reviews);
+        List<Film> films=new ArrayList<Film>();
+        for(Review review:reviews){
+            films.add(filmService.findFilmById(review.getFilmId()));
+        }
+        request.getSession().setAttribute("films",films);
+        return "success";
+    }
 
 }

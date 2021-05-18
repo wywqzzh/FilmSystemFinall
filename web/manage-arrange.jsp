@@ -66,12 +66,14 @@
                         console.log(hallNum);
                     }
                 }
+            }
+            if(isHall!=undefined){
                 var form=document.getElementById("finallSubmit");
                 var form2 = document.getElementById("showHall");
                 var filmId="<%=session.getAttribute("filmId")%>";
                 if(""!=filmId){
-                   form.filmId.value=filmId;
-                   form2.filmId.value=filmId;
+                    form.filmId.value=filmId;
+                    form2.filmId.value=filmId;
 
                 }else {
                     console.log("filmIdNull");
@@ -116,7 +118,7 @@
             <a href="manageAction/manageCinema"><h3 style="background-color: #ffffff">影院管理</h3></a>
         </div>
         <div class="n1">
-            <a><h3 style="background-color: #f7f7f7">影评管理</h3></a>
+            <a href="manageAction/manageReview"><h3 style="background-color: #f7f7f7">影评管理</h3></a>
         </div>
         <div class="n1">
             <a href="manageAction/getInitarrange"><h3 style="background-color: #ffffff">排片管理</h3></a>

@@ -26,11 +26,31 @@ public class FilmDaoImpl implements IFilmDao{
     }
 
     @Override
-    @Transactional
-    public List<Film> SselectFilmByName(String name) {
-        String sql="select a.* from table film Inner join fn_SplitStringToRows(:name)b on CHARINDEX(b.v,a.filmName)>0";
+    public List<Film> selectFilmByNameLike(String name) {
+        String sql="from Film where filmName like :name";
 
-        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameter("name",name).addEntity(Film.class).list();
+        return sessionFactory.getCurrentSession().createQuery(sql).setParameter("name","%"+name+"%").list();
+    }
+
+    @Override
+    public List<Film> selectFilmByDirectorLike(String name) {
+        String sql="from Film where filmDirector like :name";
+
+        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameter("name","%"+name+"%").addEntity(Film.class).list();
+    }
+
+    @Override
+    public List<Film> selectFilmByActorLike(String name) {
+        String sql="from Film where filmActors like :name";
+
+        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameter("name","%"+name+"%").addEntity(Film.class).list();
+    }
+
+    @Override
+    public List<Film> selectFilmByCountryLike(String name) {
+        String sql="from Film where filmCountry like :name";
+
+        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameter("name","%"+name+"%").addEntity(Film.class).list();
     }
 
     @Override

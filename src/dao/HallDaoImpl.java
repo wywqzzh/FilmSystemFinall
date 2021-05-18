@@ -25,6 +25,7 @@ public class HallDaoImpl implements IHallDao {
     @Override
     public void deleteHallById(String Id) {
         String hql="delete from Hall where hallId=:id";
+//        外键约束
         sessionFactory.getCurrentSession().createQuery(hql).setParameter("id",Id).executeUpdate();
         sessionFactory.getCurrentSession().clear();
     }

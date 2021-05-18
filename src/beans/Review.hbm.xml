@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="beans">
+
+<!--    映射文件的作用：-->
+<!--        1）类到表的yingshe-->
+<!--        2）属性到字段的映射-->
+    <class name="Review" table="review">
+
+
+
+        <composite-id>
+            <key-property name="userName" column="userName" type="java.lang.String"></key-property>
+            <key-property name="filmId" column="filmId" type="java.lang.String"></key-property>
+        </composite-id>
+        <property name="filmRating" column="filmRating"/>
+        <property name="filmReview" column="filmReview"/>
+    </class>
+
+</hibernate-mapping>

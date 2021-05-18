@@ -1,5 +1,7 @@
 <%@ page import="beans.Cinema" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Order" %>
+<%@ page import="beans.Film" %><%--
   Created by IntelliJ IDEA.
   User: Lenovo
   Date: 2021/5/5
@@ -33,7 +35,7 @@
         <div class="search">
             <div style="clear:both;"></div>
             <form action="" style="width: 100%;height: 100%">
-                <input type="text" placeholder="影院名称/地址" name="input" id="" value="" />
+                <input type="text" placeholder="影院名称/地址" name="searchInput" id="" value="" />
                 <button><i>搜索</i></button>
             </form>
         </div>
@@ -41,7 +43,7 @@
             <div style="clear:both;"></div>
             <ul>
                 <div style="clear:both;"></div>
-                <li><a href="" style="color: #584029;width: 15%">首页</a> </li>
+                <li><a href="test/home" style="color: #584029;width: 15%">首页</a> </li>
                 <li><a href="${pageContext.request.contextPath}/cinemaAction/showCinema" style="color: #f37f00;width: 15%">电影院</a> </li>
                 <li><a href="" style="color: #e85409;width: 15%">即将上映</a> </li>
                 <li><a href="" style="color: #1c9ba2;width: 15%">我的订票</a> </li>
@@ -55,7 +57,7 @@
             <a href="${pageContext.request.contextPath}/userAction/toRegisterPage.action" style="color:#45893f ">注册</a>
             <%}else {
             %>
-            <a href="" style="color: #a8dbcd;margin-top: 4%;width: 55%;margin-right: 20%">${sessionScope.userName}ssssssssssssss</a>
+            <a href="" style="color: #a8dbcd;margin-top: 4%;width: 55%;margin-right: 20%">${sessionScope.userName}</a>
             <a href="${pageContext.request.contextPath}/userAction/logout" style="color:#45893f;width: 25% ">注销</a>
             <%}%>
             <%--        <c:choose>--%>
@@ -80,30 +82,37 @@
     <div class="cinema">
         <div class="men">
             <div class="n1">
-                <span>影院名称</span>
+                <span>订单编号</span>
             </div>
             <div class="n2">
-                <span>影院地址</span>
+                <span>电影名</span>
             </div>
             <div class="n3">
-                <span>联系方式</span>
+                <span>影院</span>
+            </div>
+            <div class="n4" style="width: 23.6%;border: 0">
+                <span>金额</span>
             </div>
         </div>
         <%  List<Cinema> cinemas=(List<Cinema>)session.getAttribute("cinemas");
+            List<Order> orders= (List<Order>) session.getAttribute("orders");
+            List<Film> films=(List<Film>)session.getAttribute("films");
             int x=0;
-            for(Cinema cinema:cinemas) {
+            for(int i=0;i<orders.size();i++) {
                 x+=1;
                 if(x%2==0){%>
                     <div class="mess" style="background-color: #f7f7f7">
-                        <a class="n1">&nbsp;<%=cinema.getCinemaName()%></a>
-                        <a class="n2">&nbsp;<%=cinema.getCinemaAddress()%></a>
-                        <a class=n3"">&nbsp;<%=cinema.getCinemaphone()%></a>
+                        <a class="n1">&nbsp;<%=orders.get(i).getOrderId()%></a>
+                        <a class="n2">&nbsp;<%=films.get(i).getFilmName()%></a>
+                        <a class="n3">&nbsp;<%=cinemas.get(i).getCinemaName()%></a>
+                        <a class="n4">&nbsp;<%=orders.get(i).getCost()%></a>
                     </div>
                 <%}else{%>
-                    <div class="mess" style="background-color: #ffffff">
-                        <a class="n1">&nbsp;<%=cinema.getCinemaName()%></a>
-                        <a class="n2">&nbsp;<%=cinema.getCinemaAddress()%></a>
-                        <a class="n3">&nbsp;<%=cinema.getCinemaphone()%></a>
+                    <div class="mess" style="background-color: #f7f7f7">
+                        <a class="n1">&nbsp;<%=orders.get(i).getOrderId()%></a>
+                        <a class="n2">&nbsp;<%=films.get(i).getFilmName()%></a>
+                        <a class="n3">&nbsp;<%=cinemas.get(i).getCinemaName()%></a>
+                        <a class="n4">&nbsp;<%=orders.get(i).getCost()%></a>
                     </div>
                 <%}
             }%>

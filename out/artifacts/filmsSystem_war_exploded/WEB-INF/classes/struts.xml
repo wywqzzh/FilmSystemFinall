@@ -19,6 +19,9 @@
         <action name="home" class="actions.HomeAction" method="Home">
             <result name="success">/home.jsp</result>
         </action>
+        <action name="toFilmList">
+            <result name="success">/filmSearchList.jsp</result>
+        </action>
     </package>
 
 
@@ -34,7 +37,7 @@
             <result name="success">/home.jsp</result>
         </action>
         <action name="login" class="actions.LoginAction">
-            <result name="success">/home.jsp</result>
+            <result name="success">/index.jsp</result>
             <result name="input">/login.jsp</result>
             <result name="fail">/login.jsp</result>
             <result name="root">/root.jsp</result>
@@ -51,7 +54,7 @@
 
     <package name="xxxx" namespace="/cinemaAction" extends="struts-default">
         <action name="showCinema" class="actions.CinemaAction" method="showCinema">
-            <result name="success">/showCinemas.jsp</result>
+            <result name="success">/myOrder.jsp</result>
             <result name="input">/error.jsp</result>
         </action>
     </package>
@@ -72,7 +75,7 @@
 
 <!--        影院管理-->
         <action name="manageCinema" class="actions.ManageAction" method="manageAllCinema">
-            <result name="success">/manage-cinema.jsp</result>
+            <result name="success">/manage-cinema.jsp</result><!---->
             <result name="input">/error.jsp</result>
         </action>
         <action name="addCinema" class="actions.ManageAction" method="addCinema">
@@ -120,6 +123,62 @@
         <action name="addArrange" class="actions.ArrangeAction" method="addArrange">
             <result name="success">/manage-arrange.jsp</result>
         </action>
+
+<!--        影评管理-->
+        <action name="manageReview" class="actions.ManageAction" method="manageReview">
+            <result name="success">/manageReview.jsp</result>
+        </action>
+        <action name="deleteReview" class="actions.ManageAction" method="deleteReview">
+            <result name="success">/manageReview.jsp</result>
+        </action>
     </package>
 
+<!--    电影-->
+    <package name="xx" namespace="/filmAction" extends="struts-default">
+        <action name="searchFilm" class="actions.FilmAction" method="searchFilm">
+            <result name="success">/filmSearchList.jsp</result>
+        </action>
+        <action name="toFilmDeatil">
+            <result name="success">/filmDetail.jsp</result>
+        </action>
+        <action name="addReview" class="actions.FilmAction" method="addReview">
+            <result name="success">/filmDetail.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        <action name="hotFilm" class="actions.HomeAction" method="hotFilm">
+            <result name="success">/hotShow.jsp</result>
+        </action>
+        <action name="willFilm" class="actions.FilmAction" method="willFilm">
+            <result name="success">/willShow.jsp</result>
+        </action>
+        <action name="buyTicket" class="actions.FilmAction" method="buyTicket">
+            <result name="success">/buyTicket.jsp</result>
+        </action>
+        <action name="choiseSeat" class="actions.FilmAction" method="choiseSeat">
+            <result name="success">/seat.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        <action name="addSeat" class="actions.FilmAction" method="addSeat">
+            <result name="success">/order.jsp</result>
+            <result name="exist">/seat.jsp</result>
+        </action>
+        <action name="cancleOrder" class="actions.FilmAction" method="cancleOrder">
+            <result name="success">/seat.jsp</result>
+        </action>
+        <action name="myOrder" class="actions.FilmAction" method="myOrder">
+            <result name="login">/login.jsp</result>
+            <result name="success">/myOrder.jsp</result>
+        </action>
+        <action name="FilmToDetail" class="actions.HomeAction" method="FilmToDetail">
+            <result name="success">/filmDetail.jsp</result>
+        </action>
+
+        <action name="collection" class="actions.FilmAction" method="collection">
+            <result name="login">/login.jsp</result>
+            <result name="success">/filmDetail.jsp</result>
+        </action>
+        <action name="cancleCollection" class="actions.FilmAction" method="cancleCollection">
+            <result name="success">/filmDetail.jsp</result>
+        </action>
+    </package>
 </struts>

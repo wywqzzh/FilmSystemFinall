@@ -37,4 +37,10 @@ public class HallServiceImpl implements IHallService{
     public void removeHallById(String Id) {
         hallDao.deleteHallById(Id);
     }
+
+    @Override
+    @Transactional
+    public Hall findHallByCinemaIdAndNum(String cinemaId, int num) {
+        return hallDao.selectHallByCinemaIdAndNum(cinemaId,num);
+    }
 }

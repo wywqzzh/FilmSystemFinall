@@ -1,0 +1,286 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td a{
+    margin:0;
+    padding:0;
+}
+div{
+    overflow: hidden;
+}
+a{
+    text-decoration: none;
+}
+body{
+    display: block;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+.top{
+    overflow: hidden;
+    background-color:#e4efe2;
+    /**/
+    width: 100%;
+    height: 6%;
+}
+.logo{
+    overflow: hidden;
+    clear: both;
+    height: 100%;
+    width: 15%;
+    vertical-align: center;
+}
+.logo a{
+    background: url(/images/index/logo.png);
+    background-size: 100%,100%;
+    background-repeat:no-repeat ;
+    overflow: hidden;
+    display: block;
+    line-height: 50%;
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    color:rgba(59,145,48,0.7);
+
+}
+a{
+    cursor: pointer;
+}
+.nav{
+    height: 8%;
+    background-color: white;
+    width: 100%;
+    padding-top:3%;
+    border-bottom: 1px solid #f7f7f7;
+}
+.nav .webName{
+    margin-top: 0.5%;
+    float: left;
+    height: 80%;
+    width: 10%;
+    line-height:100%;
+    margin-left: 3%;
+    text-align: right;
+    color: #3d9f4b;
+    font-weight: bold;
+    font-size:x-large;
+}
+.search{
+    float: left;
+    margin-left: 1%;
+    height: 80%;
+    width: 20%;
+    display: flex;
+    overflow: hidden;
+    /*border: 1px solid red;*/
+}
+.search input{
+    float: left;//左浮动
+    flex: 2;
+    height: 60%;
+    outline: none;
+    border: 1px solid #f0f0f0;
+    width: 80%;
+    /*box-sizing: border-box;//盒子模型，怪异IE盒子模型，width=content+border*2+padding*2*/
+    padding-left: 3%;
+}
+.search button{
+    float: left;
+    flex: 1;
+    height: 60%;
+    width: 20%;
+    background-color: #C0C0C0;
+    color: white;
+    border-style: none;
+    outline: none;
+}
+.search button i{
+    font-style: normal;
+}
+.search button{
+    cursor: pointer;
+}
+.search button:hover{
+    background-color: #f0f0f0;
+    color: #C0C0C0;
+}
+.nav .nav-links{
+    float: left;
+    height: 80%;
+    width: 40%;
+    margin-left: 6%;
+    margin-top: 0.7%;
+    border-bottom: 5px black;
+}
+
+.nav-links ul{
+    list-style: none;
+    height: 100%;
+    width: 100%;
+}
+.nav-links li{
+    display: inline;
+    line-height: 100%;
+    float:left;
+    margin-left: 7%;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+
+    /*padding: 20px 20px;*/
+}
+
+.nav-links a{
+    cursor: pointer;
+}
+.search button:hover{
+    background-color: #f0f0f0;
+    color: #C0C0C0;
+}
+.nav .logOrwel{
+    height: 80%;
+    width: 10%;
+    float: left;
+    margin-left: 3%;
+    /*background-color: blac/k;*/
+}
+
+.logOrwel a {
+    display: block;
+    float: left;
+    color: white;
+    width: 30%;
+    overflow: hidden;
+    text-align: center;
+    font-size: large;
+    margin-top: 3%;
+    /*margin-right: 2%;*/
+}
+
+
+.userMessage{
+    height: 120%;
+    width: 80%;
+    /*background-color: black;*/
+    margin-left: 10%;
+    overflow: scroll;
+}
+.men{
+    width: 80%;
+    height: 6%;
+    margin-left: 10%;
+    margin-top: 2%;
+    background-color: white;
+    border-bottom: 2px solid #ced9bf;
+    color: #6c6d74;
+}
+
+.men .n1{
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #e1e1e1;
+    text-align: center;
+    line-height: 560%;
+}
+.men .n2{
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid #e1e1e1;
+    text-align: center;
+    line-height: 560%;
+}
+
+.mess{
+    width: 100%;
+    height: 6%;
+}
+
+.mess .n1{
+    float: left;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    line-height: 560%;
+}
+.film{
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    background-color: #e1e1e1;
+}
+
+.colShow{
+    margin-top: 4%;
+    width: 90%;
+    height: 4%;
+    background-color: #e1e1e1;
+    margin-left: 10%;
+    /*line-height: 400%;*/
+}
+.rowSHow{
+    width: 10%;
+    height: 60%;
+    background-color: #e1e1e1;
+    float: left;
+    /*line-height: 500%;*/
+}
+.col{
+    height: 100%;
+    width: 5%;
+    text-align: center;
+    float: left;
+}
+.row{
+    height: 5%;
+    width: 100%;
+    text-align: center;
+
+}
+.seats{
+    float: left;
+    width: 90%;
+    height: 60%;
+    /*background-color: #1c9ba2;*/
+}
+
+
+.myButton {
+    box-shadow:inset 0px 0px 14px -3px #f2fadc;
+    background:linear-gradient(to bottom, #e4efe2 5%, #9ba892 100%);
+    background-color:#e4efe2;
+    border-radius:6px;
+    border:1px solid #b2b8ad;
+    display:inline-block;
+    cursor:pointer;
+    color:#757d6f;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #ced9bf;
+}
+.myButton:hover {
+    background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+    background-color:#9ba892;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+.order{
+    margin-top: 4%;
+    width: 60%;
+    height: 30%;
+    background-color: white;
+    margin-left: 10%;
+}
+
+
+
+
+
+
+

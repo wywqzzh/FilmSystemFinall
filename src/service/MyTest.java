@@ -75,11 +75,14 @@ public class MyTest {
     public void  testLike(){
         String resource="applicationContext.xml";
         ApplicationContext ac=new ClassPathXmlApplicationContext(resource);
-        IFilmDao service= (IFilmDao) ac.getBean("filmDao");
-        List<Film> films=service.SselectFilmByName("肖");
-        for(Film film:films){
-            System.out.println(film);
-        }
+        ICinemaService service= (ICinemaService) ac.getBean("cinemaService");
+
+        Cinema cinema=new Cinema();
+        cinema.setCinemaId("12345");
+        cinema.setCinemaphone("12345");
+        cinema.setCinemaAddress("江苏省常州市武进区");
+        cinema.setCinemaName("奥斯卡国际影城");
+        service.addCinema(cinema);
 
     }
 

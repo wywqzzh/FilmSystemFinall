@@ -31,4 +31,10 @@ public class CinemaServiceImpl implements ICinemaService{
     public void updateCinema(Cinema cinema) {
         cinemaDao.updateCinema(cinema);
     }
+
+    @Override
+    @Transactional
+    public Cinema findCinemaById(String cinemaId) {
+        return cinemaDao.selectCinemaById(cinemaId);
+    }
 }

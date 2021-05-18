@@ -43,7 +43,7 @@
                 <label>用户名:</label> <span class="formFieldError"><s:textfield name="UserName" label="用户名" class="inputs"/><s:fielderror class="error"><s:param>userName</s:param></s:fielderror></span> <br>
                 <label>手机号:</label> <s:textfield name="UserPhone" label="手机号" class="inputs"/><span class="formFieldError"><s:fielderror class="error"><s:param>userPhone</s:param></s:fielderror></span> <br>
                 <label>密码:</label> <s:password name="UserPassword" label="密码" class="inputs"/><span class="formFieldError"><s:fielderror class="error"><s:param>userPassword</s:param></s:fielderror></span> <br>
-                <label>确认密码:<</label> <s:password name="reUserPassword" label="确认密码" class="inputs"/><s:fielderror class="error"><span class="formFieldError"><s:param>reUserPassword</s:param></s:fielderror></span> ><br>
+                <label>确认密码:</label> <s:password name="reUserPassword" label="确认密码" class="inputs"/><s:fielderror class="error"><span class="formFieldError"><s:param>reUserPassword</s:param></s:fielderror></span><br>
                 <label>年龄:</label> <s:textfield name="UserAge" label="年龄" class="inputs"/><br>
                 <label>地区:</label> <s:textfield name="UserArea" label="地区" class="inputs"/><br>
                 <label>喜爱类型:</label> <s:textfield name="UserPreferences" label="喜爱类型" class="inputs"/><br>

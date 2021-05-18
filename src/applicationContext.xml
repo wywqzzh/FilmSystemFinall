@@ -55,7 +55,22 @@
     <bean id="filmDao" class="dao.FilmDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
+    <bean id="reviewDao" class="dao.ReviewDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="orderDao" class="dao.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seatDao" class="dao.SeatDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="favoriteDao" class="dao.FavoriteImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!--注册Service-->
+    <bean id="seatService" class="service.SeatServiceImpl">
+        <property name="seatDao" ref="seatDao"/>
+    </bean>
     <bean id="userService" class="service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
@@ -73,7 +88,16 @@
         <property name="arrangeDao" ref="arrangeDao"/>
         <property name="hallDao" ref="hallDao"/>
     </bean>
-
+    <bean id="reviewService" class="service.ReviewServiceImpl">
+        <property name="reviewDao" ref="reviewDao"/>
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="orderService" class="service.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="favoriteService" class="service.FavoriteService">
+        <property name="favoriteDao" ref="favoriteDao"/>
+    </bean>
     <!--    注册事务管理器-->
     <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>

@@ -8,4 +8,5 @@ public interface ICinemaService {
     public List<Cinema> findAllCinema();
     public String addCinema(Cinema cinema);
     public void updateCinema(Cinema cinema);
+    public Cinema findCinemaById(String cinemaId);
 }

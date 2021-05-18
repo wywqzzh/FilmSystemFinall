@@ -185,14 +185,24 @@ a{
     margin-bottom: 2%;
     /*font-weight:normal;*/
     /*background-color: #1c9ba2;*/
+    border-bottom: 3px solid #ced9bf;
 
 
 }
 .hd h2{
+    display: block;
+    float: left;
     font-weight:normal;
     font-size: 20px;
     margin-bottom: 0;
-    border-bottom: 3px solid #ced9bf;
+
+}
+.hd h5{
+    display: block;
+    float: left;
+    font-weight:normal;
+    margin-bottom: 0;
+    color: #1c9ba2;
 }
 .context .bd{
     width: 100%;

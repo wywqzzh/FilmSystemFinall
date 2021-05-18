@@ -14,6 +14,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
     <!--    注册JDBC属性文件-->
     <context:property-placeholder location="classpath:jdbc.properties"/>
+    <context:component-scan base-package="actions,beans,dao,service"></context:component-scan>
     <!--    注册数据源:C3P0数据源-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"/>
@@ -32,7 +33,7 @@
                 <prop key="connection.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</prop>
                 <prop key="current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.show_sql">true</prop>
+                <!--                <prop key="hibernate.show_sql">false</prop>-->
                 <prop key="hibernate.format_sql">true</prop>
             </props>
         </property>
@@ -42,15 +43,61 @@
     <bean id="userDao" class="dao.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
-
+    <bean id="cinemaDao" class="dao.CinemaDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="hallDao" class="dao.HallDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean name="arrangeDao" class="dao.FilearrangementmessageDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="filmDao" class="dao.FilmDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="reviewDao" class="dao.ReviewDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="orderDao" class="dao.OrderDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="seatDao" class="dao.SeatDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="favoriteDao" class="dao.FavoriteImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
     <!--注册Service-->
+    <bean id="seatService" class="service.SeatServiceImpl">
+        <property name="seatDao" ref="seatDao"/>
+    </bean>
     <bean id="userService" class="service.UserServiceImpl">
         <property name="userDao" ref="userDao"/>
     </bean>
-
-
-
+    <bean id="cinemaService" class="service.CinemaServiceImpl">
+        <property name="cinemaDao" ref="cinemaDao"/>
+    </bean>
+    <bean id="hallService" class="service.HallServiceImpl">
+        <property name="hallDao" ref="hallDao"/>
+    </bean>
+    <bean id="filmService" class="service.FilmServiceImpl">
+        <property name="filmDao" ref="filmDao"/>
+        <property name="arrangDao" ref="arrangeDao"/>
+    </bean>
+    <bean id="arrangeService" class="service.ArrangeServiceImpl">
+        <property name="arrangeDao" ref="arrangeDao"/>
+        <property name="hallDao" ref="hallDao"/>
+    </bean>
+    <bean id="reviewService" class="service.ReviewServiceImpl">
+        <property name="reviewDao" ref="reviewDao"/>
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="orderService" class="service.OrderServiceImpl">
+        <property name="orderDao" ref="orderDao"/>
+    </bean>
+    <bean id="favoriteService" class="service.FavoriteService">
+        <property name="favoriteDao" ref="favoriteDao"/>
+    </bean>
     <!--    注册事务管理器-->
     <bean id="hibernateTransactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
         <property name="sessionFactory" ref="sessionFactory"/>

@@ -6,6 +6,8 @@ import dao.IFilearrangementmessageDao;
 import dao.IHallDao;
 
 import javax.transaction.Transactional;
+import java.sql.Timestamp;
+import java.util.List;
 
 public class ArrangeServiceImpl implements IArrangeService {
     private IFilearrangementmessageDao arrangeDao;
@@ -34,5 +36,24 @@ public class ArrangeServiceImpl implements IArrangeService {
         arrange.setArrangeOnSale(hall.getHallCol()*hall.getHallRow());
         arrange.setArrangeSold(0);
         arrangeDao.insertArrange(arrange);
+    }
+
+    @Override
+    @Transactional
+    public List<Filearrangementmessage> findArrangeWill(Timestamp time) {
+        return arrangeDao.selectArrangeWill(time);
+    }
+
+    @Override
+    @Transactional
+    public List<Filearrangementmessage> findArrangeByTimeFilmId(Timestamp timestamp, String filmId) {
+        return arrangeDao.selectArrangeByTimeFilmId(timestamp,filmId);
+    }
+
+    @Override
+    @Transactional
+    public Filearrangementmessage findArrangeById(String arrangeId) {
+
+        return arrangeDao.selectArrangeById(arrangeId);
     }
 }

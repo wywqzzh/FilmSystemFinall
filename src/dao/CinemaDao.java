@@ -40,4 +40,10 @@ public class CinemaDao implements ICinemaDao{
         setParameter("id",cinema.getCinemaId()).executeUpdate();
         sessionFactory.getCurrentSession().clear();
     }
+
+    @Override
+    public Cinema selectCinemaById(String cinemaId) {
+        String hql="from Cinema where cinemaId=:id";
+        return (Cinema) sessionFactory.getCurrentSession().createQuery(hql).setParameter("id",cinemaId).uniqueResult();
+    }
 }

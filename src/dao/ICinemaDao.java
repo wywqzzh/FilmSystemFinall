@@ -10,4 +10,5 @@ public interface ICinemaDao {
     public void insertCinema(Cinema cinema);
     public List<Cinema> selectCinemaByName(String name);
     public void updateCinema(Cinema cinema);
+    public Cinema selectCinemaById(String cinemaId);
 }

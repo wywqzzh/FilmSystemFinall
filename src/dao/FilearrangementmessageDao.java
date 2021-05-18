@@ -26,9 +26,30 @@ public class FilearrangementmessageDao implements IFilearrangementmessageDao{
         return sessionFactory.getCurrentSession().createQuery(hql).setParameter("time",timestamp).list();
     }
 
+
+
     @Override
-    public List<String> selectWillArrange() {
-        String hql="select filmId from Filearrangementmessage order by arrangeSaleTime";
-        return sessionFactory.getCurrentSession().createQuery(hql).list();
+    public List<Filearrangementmessage> selectArrangeHot(Timestamp time) {
+        String hql="from Filearrangementmessage where arrangeSaleTime<:time and arrangeStartDatetime>:time order by arrangeStartDatetime";
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("time",time).list();
+    }
+
+    @Override
+    public List<Filearrangementmessage> selectArrangeWill(Timestamp time) {
+        String hql="from Filearrangementmessage where arrangeSaleTime>:time order by arrangeSaleTime";
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("time",time).list();
+    }
+
+    @Override
+    public List<Filearrangementmessage> selectArrangeByTimeFilmId(Timestamp timestamp, String filmId) {
+        String hql="from Filearrangementmessage where arrangeSaleTime<:time and arrangeStartDatetime>:time  and filmId=:filmId order by arrangeStartDatetime";
+
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("time",timestamp).setParameter("filmId",filmId).list();
+    }
+
+    @Override
+    public Filearrangementmessage selectArrangeById(String arrangeId) {
+        String hql="from Filearrangementmessage where arrangeId=:id";
+        return (Filearrangementmessage) sessionFactory.getCurrentSession().createQuery(hql).setParameter("id",arrangeId).uniqueResult();
     }
 }
