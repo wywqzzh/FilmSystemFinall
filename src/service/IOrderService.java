@@ -10,4 +10,5 @@ public interface IOrderService {
     public void addOrder(Order order);
     public void removeOrder(Order order);
     public List<Order> findAllOrderByUserName(String userName);
+    public void updateOrder(Order order);
 }

@@ -47,7 +47,7 @@
                 <li><a href="${pageContext.request.contextPath}/cinemaAction/showCinema" style="color: #f37f00;width: 15%">电影院</a> </li>
                 <li><a href="" style="color: #e85409;width: 15%">即将上映</a> </li>
                 <li><a href="" style="color: #1c9ba2;width: 15%">我的订票</a> </li>
-                <li><a href="" style="color: #3fa2af;width: 15%">个人中心</a> </li>
+                <li><a href="filmAction/myCollection" style="color: #3fa2af;width: 15%">我的收藏</a> </li>
             </ul>
         </div>
         <div class="logOrwel">

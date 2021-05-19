@@ -82,7 +82,7 @@
         <div class="actors" ><span><h4>主演:<%=film.getFilmActors()%></h4></span></div>
     </div>
     <div class="collection" id="collection">
-        <% if(userName==null||"".equals(userName)){%>
+        <% if(userName==null||"".equals(userName)||favorite==null){%>
             <a style="color:#1c9ba2;" href="filmAction/collection">收藏</a>
         <%}else {%>
             <a style="color:#1c9ba2;" href="filmAction/cancleCollection">取消收藏</a>

@@ -44,7 +44,7 @@
           <li><a href="test/home" style="color: #584029;width: 15%">首页</a> </li>
           <li><a href="filmAction/willFilm" style="color: #e85409;width: 15%">即将上映</a> </li>
           <li><a href="filmAction/myOrder" style="color: #1c9ba2;width: 15%">我的订票</a> </li>
-          <li><a href="" style="color: #3fa2af;width: 15%">个人中心</a> </li>
+          <li><a href="filmAction/myCollection" style="color: #3fa2af;width: 15%">我的收藏</a> </li>
         </ul>
       </div>
       <div class="logOrwel">
@@ -108,43 +108,44 @@
         <div class="hd">
           <h2 style="line-height: 250%">推荐</h2>
         </div>
-        <div class="bd">
-          <ul style="width: 100%;height: 100%">
-            <li>
-              <ul >
-                <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                <li class="li2"><a class="a2">霸王别姬</a></li>
-                <li class="li3"><a>评分:4.5</a></li>
-                <li class="li4"><a class="myButton">购票</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul >
-                <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                <li class="li2"><a class="a2">霸王别姬</a></li>
-                <li class="li3"><a>评分:4.5</a></li>
-                <li class="li4"><a class="myButton">购票</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul >
-                <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                <li class="li2"><a class="a2">霸王别姬</a></li>
-                <li class="li3"><a>评分:4.5</a></li>
-                <li class="li4"><a class="myButton">购票</a></li>
-              </ul>
-            </li>
-            <li>
-              <ul >
-                <li class="li1"><a style="background-image:url(/images/filmImage/霸王别姬.jpg);" class="a1"></a></li>
-                <li class="li2"><a class="a2">霸王别姬</a></li>
-                <li class="li3"><a>评分:4.5</a></li>
-                <li class="li4"><a class="myButton">购票</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+          <% List<Film> Rfilms=(List<Film>) session.getAttribute("Rfilms");
+            if(Rfilms!=null){%>
+                <div class="bd">
+                  <ul style="width: 100%;height: 100%">
+                    <li>
+                      <ul >
+                        <li class="li1"><a style="background-image:url(<%=Rfilms.get(0).getFilmImgUrl()%>);" class="a1" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(0).getFilmId()%>"></a></li>
+                        <li class="li2"><a class="a2" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(0).getFilmId()%>"><%=Rfilms.get(0).getFilmName()%></a></li>
+                        <li class="li3"><a>评分:<%=Rfilms.get(0).getFilmRating()%></a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul >
+                        <li class="li1"><a style="background-image:url(<%=Rfilms.get(1).getFilmImgUrl()%>);" class="a1" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(1).getFilmId()%>"></a></li>
+                        <li class="li2"><a class="a2" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(1).getFilmId()%>"><%=Rfilms.get(1).getFilmName()%></a></li>
+                        <li class="li3"><a>评分:<%=Rfilms.get(1).getFilmRating()%></a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul >
+                        <li class="li1"><a style="background-image:url(<%=Rfilms.get(2).getFilmImgUrl()%>);" class="a1" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(2).getFilmId()%>"></a></li>
+                        <li class="li2"><a class="a2" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(2).getFilmId()%>"><%=Rfilms.get(2).getFilmName()%></a></li>
+                        <li class="li3"><a>评分:<%=Rfilms.get(2).getFilmRating()%></a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul >
+                        <li class="li1"><a style="background-image:url(<%=Rfilms.get(3).getFilmImgUrl()%>);" class="a1" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(3).getFilmId()%>"></a></li>
+                        <li class="li2"><a class="a2" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=0&filmId=<%=Rfilms.get(3).getFilmId()%>"><%=Rfilms.get(3).getFilmName()%></a></li>
+                        <li class="li3"><a>评分:<%=Rfilms.get(3).getFilmRating()%></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                </div>
+            <%}else{%>
+      <div style="margin-left: 45%;margin-top: 25%;"><h2><a href="login.jsp" style="display: block;color: #1c9ba2">请登录</a></h2></div>
+      <%}%>
     </div>
     </div>
     <base href="<%=basePath%>">

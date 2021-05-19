@@ -4,6 +4,7 @@ import beans.Favorite;
 import dao.IFavoriteDao;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 public class FavoriteService implements IFavoriteService{
     private IFavoriteDao favoriteDao;
@@ -22,5 +23,17 @@ public class FavoriteService implements IFavoriteService{
     @Transactional
     public void removeFavorite(Favorite favorite) {
         favoriteDao.deleteFavorite(favorite);
+    }
+
+    @Override
+    @Transactional
+    public Favorite findFavorite(Favorite favorite) {
+        return favoriteDao.selectFavorite(favorite);
+    }
+
+    @Override
+    @Transactional
+    public List<Favorite> findFavoriteByUserName(String userName) {
+        return favoriteDao.selectFavoriteByUserName(userName);
     }
 }

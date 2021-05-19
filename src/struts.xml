@@ -34,7 +34,9 @@
             <result name="success">/register.jsp</result>
         </action>
         <action name="logout" class="actions.LogoutAction">
-            <result name="success">/home.jsp</result>
+            <result name="success" type="redirectAction">
+                <param name="actionName">/test/home</param>
+            </result>
         </action>
         <action name="login" class="actions.LoginAction">
             <result name="success">/index.jsp</result>
@@ -179,6 +181,15 @@
         </action>
         <action name="cancleCollection" class="actions.FilmAction" method="cancleCollection">
             <result name="success">/filmDetail.jsp</result>
+        </action>
+        <action name="myCollection" class="actions.FilmAction" method="myCollection">
+            <result name="success">/myCollection.jsp</result>
+            <result name="login">/login.jsp</result>
+        </action>
+        <action name="confirmOrder" class="actions.FilmAction" method="confirmOrder">
+            <result name="success" type="redirectAction">
+                <param name="actionName">myOrder</param>
+            </result>
         </action>
     </package>
 </struts>

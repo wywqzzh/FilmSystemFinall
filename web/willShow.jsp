@@ -44,7 +44,7 @@
           <li><a href="test/home" style="color: #584029;width: 15%">首页</a> </li>
           <li><a href="filmAction/willFilm" style="color: #e85409;width: 15%">即将上映</a> </li>
           <li><a href="" style="color: #1c9ba2;width: 15%">我的订票</a> </li>
-          <li><a href="" style="color: #3fa2af;width: 15%">个人中心</a> </li>
+          <li><a href="filmAction/myCollection" style="color: #3fa2af;width: 15%">我的收藏</a> </li>
         </ul>
       </div>
       <div class="logOrwel">

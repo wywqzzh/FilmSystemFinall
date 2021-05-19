@@ -11,4 +11,5 @@ public interface IOrderDao {
     public void insertOrderBySql(Order order);
     public void deleteOrder(Order order);
     public List<Order> selectAllOrderByUserName(String userName);
+    public void updateOrder(Order order);
 }

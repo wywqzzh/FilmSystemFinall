@@ -46,7 +46,7 @@
                 <div class="film">
 <%--                    <a href="${pageContext.request.contextPath }/infoController/getProductInfo?productIdStr=<%=image.getProductId() %>"><%=product.getName() %></a>--%>
                     <span hidden><%=film.getFilmId()%></span>
-                    <div class="img"><a style="background-image: url(<%=film.getFilmImgUrl()%>)" class="a1" href="${pageContext.request.contextPath }/filmAction/toFilmDeatil?index=<%=i%>&filmId=<%=film.getFilmId()%>"></a> </div>
+                    <div class="img"><a style="background-image: url(<%=film.getFilmImgUrl()%>)" class="a1" href="${pageContext.request.contextPath }/filmAction/FilmToDetail?index=<%=i%>&filmId=<%=film.getFilmId()%>"></a> </div>
                     <div class="title" ><a><h4><%=film.getFilmName()%></h4></a></div>
                     <div class="rate"><span><h4>评分:<%=film.getFilmRating()%>(<%=film.getFilmNumberRatings()%>人评价)</h4></span></div>
                     <div class="country" ><span><h4><%=film.getFilmArea()%></h4></span></div>

@@ -9,4 +9,7 @@ public interface IReviewDao {
     public void addReview(Review review);
     public List<Review> selectAllReview();
     public void deleteReviewByUserNameFilmId(String userName,String filmId);
+    public List<Review> selectReviewByFilmId(String filmId);
+    public List<Review> selectReviewByUserName(String userName);
+
 }

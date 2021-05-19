@@ -35,4 +35,16 @@ public class ReviewDaoImpl implements IReviewDao {
         sessionFactory.getCurrentSession().createQuery(hql).setParameter("name",userName).setParameter("id",filmId).executeUpdate();
         sessionFactory.getCurrentSession().clear();
     }
+
+    @Override
+    public List<Review> selectReviewByFilmId(String filmId) {
+        String hql="from Review where filmId=:id";
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("id",filmId).list();
+    }
+
+    @Override
+    public List<Review> selectReviewByUserName(String userName) {
+        String hql="from Review where userNam=:names";
+        return sessionFactory.getCurrentSession().createQuery(hql).setParameter("name",userName).list();
+    }
 }

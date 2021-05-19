@@ -42,4 +42,9 @@ public class OrderDaoImpl implements IOrderDao{
         String hql="from Order where userName=:name";
         return sessionFactory.getCurrentSession().createQuery(hql).setParameter("name",userName).list();
     }
+
+    @Override
+    public void updateOrder(Order order) {
+        sessionFactory.getCurrentSession().saveOrUpdate(order);
+    }
 }

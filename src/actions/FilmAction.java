@@ -40,8 +40,6 @@ public class FilmAction {
         String filmId= (String) request.getSession().getAttribute("filmId");
         request.setAttribute("film",filmId);
 //        System.out.println("filmId:"+filmId);
-        int index= (int) request.getSession().getAttribute("index");
-        request.setAttribute("index",index);
 
         String rate=request.getParameter("rate");
         int Rate=0;
@@ -201,7 +199,16 @@ public class FilmAction {
         request.getSession().setAttribute("order",order);
         return "success";
     }
-
+    public String confirmOrder(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        ServletContext application=request.getSession().getServletContext();
+        WebApplicationContext ac=(WebApplicationContext)application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+        IOrderService orderService= (IOrderService) ac.getBean("orderService");
+        Order order= (Order) request.getSession().getAttribute("order");
+        order.setOrderState(1);
+        orderService.updateOrder(order);
+        return "success";
+    }
     public String cancleOrder(){
         javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
         ServletContext application=request.getSession().getServletContext();
@@ -288,7 +295,30 @@ public class FilmAction {
 
         favoriteService.removeFavorite(favorite);
 
-        request.removeAttribute("favorite");
+        request.getSession().removeAttribute("favorite");
         return "success";
+    }
+
+    public String myCollection(){
+        javax.servlet.http.HttpServletRequest request = ServletActionContext.getRequest();
+        ServletContext application=request.getSession().getServletContext();
+        WebApplicationContext ac=(WebApplicationContext)application.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
+
+        String userName= (String) request.getSession().getAttribute("userName");
+        if(userName==null || "".equals(userName)){
+            return "login";
+        }
+
+        IFavoriteService favoriteService= (IFavoriteService) ac.getBean("favoriteService");
+        IFilmService filmService= (IFilmService) ac.getBean("filmService");
+        List<Favorite> favorites=favoriteService.findFavoriteByUserName(userName);
+
+        List<Film> films=new ArrayList<Film>();
+        for(int i=0;i<favorites.size();i++){
+            films.add(filmService.findFilmById(favorites.get(i).getFilmId()));
+        }
+        request.getSession().setAttribute("films",films);
+        return "success";
+
     }
 }

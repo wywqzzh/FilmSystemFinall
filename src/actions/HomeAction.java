@@ -1,12 +1,15 @@
 package actions;
 
+import beans.Favorite;
 import beans.Film;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 import service.ICinemaService;
+import service.IFavoriteService;
 import service.IFilmService;
+import utils.CollaborativeFilyering;
 
 import javax.servlet.ServletContext;
 import java.sql.Timestamp;
@@ -23,8 +26,11 @@ public class HomeAction {
 
         request.getSession().setAttribute("films",films);
         request.getSession().setAttribute("home","yes");
-        for(Film film:films){
-            System.out.println(film);
+
+        String userName= (String) request.getSession().getAttribute("userName");
+        if(userName!=null && !"".equals(userName)){
+            List<Film> recommendFilms= CollaborativeFilyering.recommend(userName);
+            request.getSession().setAttribute("Rfilms",recommendFilms);
         }
         return "success";
     }
@@ -53,6 +59,20 @@ public class HomeAction {
         System.out.println("filmId"+filmId);
         request.getSession().setAttribute("film",film);
         System.out.println(film);
+        request.getSession().removeAttribute("favorite");
+
+        String userName= (String) request.getSession().getAttribute("userName");
+        if(userName==null||"".equals(userName)){
+            return "success";
+        }else {
+            IFavoriteService favoriteService= (IFavoriteService) ac.getBean("favoriteService");
+            Favorite favorite=new Favorite();
+            favorite.setUserName(userName);
+            favorite.setFilmId(filmId);
+            Favorite favorite1=favoriteService.findFavorite(favorite);
+            if(favorite1!=null)
+                request.getSession().setAttribute("favorite",favorite);
+        }
         return "success";
     }
 }

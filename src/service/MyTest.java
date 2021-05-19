@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import utils.CollaborativeFilyering;
 import utils.Hbnutils;
 import utils.TimeConvert;
 
@@ -84,6 +85,10 @@ public class MyTest {
         cinema.setCinemaName("奥斯卡国际影城");
         service.addCinema(cinema);
 
+    }
+    @Test
+    public void Testcommed(){
+        CollaborativeFilyering.recommend("Wyd");
     }
 
 }

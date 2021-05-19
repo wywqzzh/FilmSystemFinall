@@ -34,4 +34,10 @@ public class OrderServiceImpl implements IOrderService{
     public List<Order> findAllOrderByUserName(String userName) {
         return orderDao.selectAllOrderByUserName(userName);
     }
+
+    @Override
+    @Transactional
+    public void updateOrder(Order order) {
+        orderDao.updateOrder(order);
+    }
 }

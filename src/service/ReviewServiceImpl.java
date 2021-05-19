@@ -40,4 +40,10 @@ public class ReviewServiceImpl implements IReviewService {
     public void removeReview(String userName, String filmId) {
         reviewDao.deleteReviewByUserNameFilmId(userName,filmId);
     }
+
+    @Override
+    @Transactional
+    public List<Review> findReviewByFilmId(String filmId) {
+        return reviewDao.selectReviewByFilmId(filmId);
+    }
 }
