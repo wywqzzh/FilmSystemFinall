@@ -33,8 +33,13 @@
         <action name="toRegisterPage">
             <result name="success">/register.jsp</result>
         </action>
-        <action name="logout" class="actions.LogoutAction">
+        <action name="home" class="actions.HomeAction" method="Home">
             <result name="success">/home.jsp</result>
+        </action>
+        <action name="logout" class="actions.LogoutAction">
+            <result name="success" type="redirectAction">
+                <param name="actionName">home</param>
+            </result>
         </action>
         <action name="login" class="actions.LoginAction">
             <result name="success">/index.jsp</result>
